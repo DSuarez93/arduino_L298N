@@ -19,7 +19,9 @@ class L298N
     void setup_motors(int state1, int state2, int state3, int state4);
     void setup_motor(int motor_index, int state1, int state2);
     void forward(int speed, int delay_time);
+    void forward(int speed);
     void full_stop(int delay_time);
+    void full_stop();
     void turn_right(int speed, int delay_time);
     void turn_left(int speed, int delay_time);
     void backward(int speed, int delay_time);
