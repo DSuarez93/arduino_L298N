@@ -47,10 +47,22 @@ void L298N::forward(int speed, int delay_time) {
   delay(delay_time);
 }
 
+void L298N::forward(int speed) {
+  this->setup_motors(HIGH,LOW,HIGH,LOW);
+  this->drive_motors(speed);
+  //delay(delay_time);
+}
+
 void L298N::turn_right(int speed, int delay_time) {
   this->setup_motors(LOW,HIGH,HIGH,LOW);
   this->drive_motors(speed);
   delay(delay_time);
+}
+
+void L298N::turn_right(int speed) {
+  this->setup_motors(LOW,HIGH,HIGH,LOW);
+  this->drive_motors(speed);
+  //delay(delay_time);
 }
 
 void L298N::turn_left(int speed, int delay_time) {
@@ -59,10 +71,22 @@ void L298N::turn_left(int speed, int delay_time) {
   delay(delay_time);
 }
 
+void L298N::turn_left(int speed) {
+  this->setup_motors(HIGH,LOW,LOW,HIGH);
+  this->drive_motors(speed);
+  //delay(delay_time);
+}
+
 void L298N::backward(int speed, int delay_time) {
   this->setup_motors(LOW,HIGH,LOW,HIGH);
   this->drive_motors(speed);
   delay(delay_time);
+}
+
+void L298N::backward(int speed) {
+  this->setup_motors(LOW,HIGH,LOW,HIGH);
+  this->drive_motors(speed);
+  //delay(delay_time);
 }
 
 void L298N::full_stop(int delay_time) {
@@ -71,6 +95,11 @@ void L298N::full_stop(int delay_time) {
   delay(delay_time);
 }
 
+void L298N::full_stop() {
+  this->setup_motors(LOW,LOW,LOW,LOW);
+  this->drive_motors(0);
+  //delay(delay_time);
+}
 
 void L298N::setup_motors(int state1, int state2, int state3, int state4) {
   L298N::setup_motor(this->MOTOR_A,state1,state2);
