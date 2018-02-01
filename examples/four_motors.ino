@@ -17,6 +17,28 @@ L298N driver_front(ENA_1,IN1_1,IN2_1,IN3_1,IN4_1,ENB_1);
 L298N driver_back(ENA_2,IN1_2,IN2_2,IN3_2,IN4_2,ENB_2);
 int time_delay = 500;
 int speed = 150;
+
+void car_forward(speed) {
+      driver_front.forward(speed);
+      driver_back.forward(speed);
+}
+void car_backward(speed) {
+      driver_front.backward(speed);
+      driver_back.backward(speed);
+}
+void car_stop() {
+      driver_front.full_stop();
+      driver_back.full_stop();
+}
+void car_left(speed) {
+      driver_front.turn_left(speed);
+      driver_back.turn_left(speed);
+}
+void car_right(speed) {
+      driver_front.turn_right(speed);
+      driver_back.turn_right(speed);
+}
+
 void setup()
 {
 }
@@ -26,15 +48,14 @@ void loop()
   int a;
   switch (a) {
     case 0: 
-      driver_front.forward(speed);
-      driver_back.forward(speed);
-      break;
+      car_forward(speed); break;
     case 1: 
-      driver_front.backward(speed);
-      driver_back.backward(speed);
-      break;
+      car_backward(speed); break;
+    case 2:
+      car_left(speed); break;
+    case 3:
+      car_right(speed); break;
     default: 
-      driver_front.full_stop();
-      driver_back.full_stop();
+    car_stop();
   }
 }
