@@ -1,20 +1,7 @@
-#include <L298N.h>
-  //Front Motors
-const int ENA_1 = 3;  //PWM
-const int IN1_1 = 0;
-const int IN2_1 = 1;
-const int IN3_1 = 2;
-const int IN4_1 = 4;
-const int ENB_1 = 5;  //PWM
-  //Rear Motors
-const int ENA_2 = 9;  //PWM
-const int IN1_2 = 7;
-const int IN2_2 = 8;
-const int IN3_2 = 10;
-const int IN4_2 = 12;
-const int ENB_2 = 11;  //PWM
-L298N driver_front(ENA_1,IN1_1,IN2_1,IN3_1,IN4_1,ENB_1); 
-L298N driver_back(ENA_2,IN1_2,IN2_2,IN3_2,IN4_2,ENB_2);
+#include <L298N.cpp>
+//enA, mo1a, mo1b, mo2a, mo2b, enB
+L298N driver_front(4,2,3,5,6,7); 
+L298N driver_back(10,8,9,11,12,13);
 int time_delay = 500;
 int speed = 150;
 
